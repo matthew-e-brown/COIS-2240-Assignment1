@@ -13,8 +13,26 @@
  * ---
  */
 
+import java.util.Scanner;
+import java.util.InputMismatchException;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Matt was here");
+        Scanner scan = new Scanner(System.in);
+        int terms = 0;
+        boolean validInput = false;
+        do {
+            try {
+                System.out.print("Enter the term number you'd like: ");
+                terms = scan.nextInt();
+                validInput = (terms >= 0);
+            } catch (InputMismatchException ex) {
+                scan.nextLine();
+                System.out.println("Please enter a positive integer value.");
+            }
+        } while(!validInput);
+
+        System.out.println(Fibonacci.iterative(terms));
+        System.out.println(Fibonacci.recursive(terms));
     }
 }
