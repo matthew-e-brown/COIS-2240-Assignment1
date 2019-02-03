@@ -149,6 +149,12 @@ public class Main {
         sb.append("Average Time\n");
 
         for (int ir = 0; ir <= 1; ir++) { //Do this twice; once for Iterative, once for Recursive
+            Fibonacci.iterativeTest(50);
+            Fibonacci.recursiveTest(50);
+            /* ^^ The first few runs of each iteration were consistently slower, messing with results.
+             * This way, we won't count the *first* run through.
+             */
+
             long[] el = new long[t];
             for (int n = 10; n <= 50; n += 10) {
                 for (int i = 0; i < t; i++) {
